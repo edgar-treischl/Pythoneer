@@ -1,6 +1,4 @@
----
-jupyter: python3
----
+
 
 # Preface {.unnumbered}
 

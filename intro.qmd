@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 ```
 
-# Introduction
+
 
 I tried to learn Python several times. Once I had a very peculiar class in which we should learn Python for processing natural language. Well, it was more about text mining than applying Python. I tried to learn Python with the help of several books which introduced all the ins and outs of Python. Before I started to learn Python the first time, I fluently spoke several other statistics software languages like R or Stata. I had basic skills in other languages like HTML, CSS, JavaScript. I wrote my PhD with LaTeX. Coding and programming languages were not new for me, but still I failed to learn Python.
 
@@ -26,7 +26,7 @@ It is really a shame, since I consider myself a tech-savvy without having the he
 
 Anyway, this website is the result of reading many books that could not explain what I was seeking. If you want to learn Python to automate processes, learn some statistical procedures from the scratch, or use Python to program some games, this website will not help you in any way. However, you do wanna transfer your knowledge from other languages like R, if you are familiar with multivariate (non-) linear regression techniques or do you have background in empirical social science, than this website might help you transfer your knowledge to Python. Let be give you an example why I started this website.
 
-## How (not) to calculate some basic statistics in Python
+## How (not) to calculate basic statistics {.unnumbered}
 
 The last Python book I read, introduced probably over a hundred pages about the different data structure, and of course, we need to know that to handle Python. I certainly don’t argue about this point, but instead of providing me meaningful examples to illustrate this point, I am reading about about artificial examples that not even work when I copied the code and run it in my own console. Well, shit happens, don’t you think? I really started to get the creep as I reached a statistics section. Let’s see what I learned from this chapter.
 
