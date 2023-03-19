@@ -1,11 +1,104 @@
 ---
-jupyter: python3
+title: "Visualization"
 ---
 
-# Summary
 
-In summary, this book has no content whatsoever.
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+```{r setup, include=FALSE}
+reticulate::use_python("/Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate/bin/python")
+
+```
 
 ```{python}
-1 + 1
+import seaborn as sns
+penguins = sns.load_dataset("penguins")
+penguins = penguins.dropna()
+penguins.head()
 ```
+
+
+
+
+## Categorical data
+
+<a href="https://seaborn.pydata.org/index.html" target="_blank"><img src="https://seaborn.pydata.org/_static/logo-wide-lightbg.svg" alt="The seaborn package" align="right" width="150" style="padding:10px"/></a>  
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+
+
+```{python, out.width = '95%'}
+#Bar graph
+sns.barplot(data=penguins, x="species", y="bill_length_mm")
+
+```
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+
+```{python, fig.width = 6}
+#Beeswarm
+sns.catplot(data=penguins, kind="swarm", x="sex", y="bill_length_mm", hue="species")
+```
+
+## Relationsships
+
+<a href="https://plotnine.readthedocs.io/en/stable/index.html#" target="_blank"><img src="https://plotnine.readthedocs.io/en/stable/_images/logo-540.png" alt="The plotnine package" align="right" width="150" style="padding:10px"/></a>  
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+
+```{python}
+import matplotlib
+import matplotlib.pyplot as plt
+matplotlib.style.use('ggplot')
+
+plt.scatter(penguins.body_mass_g, penguins.bill_length_mm)
+```
+
+
+
+
+Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+```{python, results = "hide"}
+#Scatterplot
+from plotnine import *
+
+(ggplot(penguins, aes('body_mass_g', 'bill_length_mm'))
+ + geom_point()
+ + stat_smooth(method='lm')
+ + facet_wrap('~species'))
+```
+
+
+
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+```{python}
+#Histogram
+(ggplot(penguins, aes(x='body_mass_g'))
+    + geom_histogram()
+    )
+```
+
+
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+
+```{python}
+# geom_boxplot
+(ggplot(penguins)
+  + geom_boxplot(aes(x='factor(species)', y='body_mass_g'))
+)
+```
+
+
+
+
+
+
