@@ -1,0 +1,163 @@
+---
+title: "Data manipulation"
+editor_options: 
+  chunk_output_type: console
+---
+
+
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+```{r setup, include=FALSE}
+reticulate::use_python("/Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate/bin/python")
+
+```
+
+```{python}
+import pandas as pd
+import seaborn as sns
+penguins = sns.load_dataset("penguins")
+penguins = penguins.dropna()
+penguins.head()
+```
+
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+```{python}
+penguins.dtypes
+```
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+```{python}
+penguins.info()
+```
+
+
+
+## Filter
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+```{python}
+#Filter data
+penguins.query('species == "Adelie"').head()
+```
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+
+```{python}
+#Filter data
+penguins.query('species == "Adelie" & sex == "Male" ').head()
+```
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+
+
+## Arrange
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+```{python}
+#Sort variables
+penguins.sort_values(by="body_mass_g").head()
+```
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+```{python}
+#Sort variables descendingly
+penguins.sort_values(by="body_mass_g", ascending=False).head()
+```
+
+
+## Select
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+```{python}
+#Select via []
+penguins[['species', 'island']].head()
+```
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+
+```{python}
+penguins.loc[:, 'island':'bill_depth_mm'].head()
+```
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+```{python}
+adelie = penguins[penguins["species"].isin(["Adelie"])]
+adelie.head()
+```
+
+
+## Mutate
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+
+```{python}
+weight = penguins[['body_mass_g']]
+weight = weight.assign(body_mass_kilo = weight['body_mass_g'] /1000)
+weight.head()
+```
+
+
+## Summarize
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+```{python}
+penguins.describe()
+```
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+```{python}
+penguins[["sex", "body_mass_g"]].groupby("sex").mean()
+```
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+```{python}
+penguins.groupby(["sex", "species"])["body_mass_g"].mean()
+```
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+```{python}
+#shortr penguins["species"].value_counts()
+penguins.groupby("species")["species"].count()
+```
+
+### REMEMBER{-}
+
+- Aggregation statistics can be calculated on entire columns or rows.
+- groupby provides the power of the split-apply-combine pattern.
+- value_counts is a convenient shortcut to count the number of entries in each category of a variable.
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+
+```{python}
+penguins.loc[penguins['species'] == "Adelie", 'Adelie'] = 'True' 
+penguins.loc[penguins['species'] != "Adelie", 'Adelie'] = 'False' 
+penguins[['species', 'Adelie']].head()
+```
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+
+```{python}
+penguins['check_length'] = penguins['bill_length_mm'].apply(lambda x: 'True' if x <= 40 else 'False')
+penguins[['bill_length_mm', 'check_length']].head()
+```
+
+
