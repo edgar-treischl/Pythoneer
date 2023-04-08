@@ -83,6 +83,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -213,11 +232,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<p>Python and R are both popular programming languages used for data analysis and machine learning tasks. While both languages have their own strengths and weaknesses, there are situations where using both languages together can be beneficial.</p>
+<p>using Python and R together can be beneficial when you want to take advantage of the strengths of both languages. Whether you want to use R libraries in Python, Python libraries in R, or combine both languages in a single application, there are many options available for integrating Python and R. Here are some ways in which Python can be used with R:</p>
+<ul>
+<li><p>R can be called from Python using the “rpy2” package: rpy2 is a Python package that allows Python programs to call R functions and use R data structures. This can be useful when you want to use an R library that is not available in Python or when you have existing R code that you want to integrate into your Python program.</p></li>
+<li><p>Jupyter Notebooks can be used to combine Python and R code: Jupyter Notebooks are interactive documents that allow you to combine code, text, and visualizations in a single document. Jupyter Notebooks support both Python and R, so you can use both languages in the same notebook.</p></li>
+<li><p>Shiny applications can be built using Python: Shiny is a popular web framework for building interactive web applications in R. However, Shiny also supports using Python through the “reticulate” package. This can be useful when you want to use a Python library that is not available in R or when you have existing Python code that you want to integrate into your Shiny application.</p></li>
+<li><p>Finally, Python can be called from R using the <code>reticulate</code> package: Reticulate is a package that allows R programs to call Python functions and use Python data structures. This can be useful when you want to use a Python library that is not available in R or when you have existing Python code that you want to integrate into your R program <span class="citation" data-cites="reticulate">(<a href="references.html#ref-reticulate" role="doc-biblioref">Ushey, Allaire, and Tang 2023</a>)</span>.</p></li>
+</ul>
+<p>The <code>reticulate</code> package makes it easy for R users to incorporate Python functionality into their R workflows, whether it’s using Python libraries not available in R, reusing existing Python code, or simply taking advantage of Python’s strengths in specific areas such as machine learning or web development.</p>
+<ul>
+<li><p>Python environment management: The package provides tools to manage Python environments within R, including creating and configuring virtual environments and managing package dependencies.</p></li>
+<li><p>Calling Python code: The package provides functions to call Python code from R, including importing Python modules, calling Python functions, and accessing Python objects. Passing data between R and Python: The package allows for seamless integration between R and Python data structures. For example, R data frames can be converted to Python pandas data frames and vice versa.</p></li>
+<li><p>Interactive sessions: The package provides an interactive Python console within R sessions, allowing users to execute Python commands interactively.</p></li>
+<li><p>Plotting: The package allows R users to create Python plots using popular Python visualization libraries such as Matplotlib and Seaborn.</p></li>
+</ul>
+<p>First, you need to have Python installed on your system. You can download Python from the official website (https://www.python.org/downloads/) and install it following the instructions provided. Next, install the reticulate package: Open an R session and install the reticulate package by running the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#List all conda installations</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">conda_list</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"reticulate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once the package is installed, you need to set the Python path in R. The Python path is the location of the Python executable on your system. You can set the path by running the following command:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">use_python</span>(<span class="st">"/Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate/bin/python"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you’re using the default Python installation on your system, you can skip this step. You can test the installation by running the following command:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">py_config</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>python:         /Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate/bin/python
+libpython:      /Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate/lib/libpython3.8.dylib
+pythonhome:     /Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate:/Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate
+version:        3.8.16 | packaged by conda-forge | (default, Feb  1 2023, 16:01:13)  [Clang 14.0.6 ]
+numpy:          /Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate/lib/python3.8/site-packages/numpy
+numpy_version:  1.24.2
+
+NOTE: Python version was forced by use_python function</code></pre>
+</div>
+</div>
+<p>This command should display information about your Python installation, including the Python version, the location of the Python executable, and the Python library path. Once the reticulate package is installed and configured, you can start using Python functionality in your R code. For example, you can import Python modules, call Python functions, and access Python objects directly from R.</p>
+<p>However, I’ll use a virtual environment for the book and the <code>conda_list()</code> functions returns all (conda) environment of the system.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#List all conda installations</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">conda_list</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          name
 1         base
@@ -227,26 +284,60 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 2 /Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate/bin/python</code></pre>
 </div>
 </div>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<p>Virtual environments in Python are a useful tool for managing dependencies and ensuring that your project runs smoothly on different systems. Here are several reasons why it is wise to use virtual environments in Python:</p>
+<ul>
+<li><p>Isolation: When you create a virtual environment, you create a self-contained Python environment with its own installation of Python and any required packages. This means that the packages installed in one virtual environment do not interfere with packages installed in other virtual environments or the global Python environment. Isolating packages in this way reduces the risk of package version conflicts and makes it easier to manage dependencies.</p></li>
+<li><p>Reproducibility: By using virtual environments, you can ensure that your code runs in a consistent and reproducible environment, regardless of the system it is run on. This is especially important if you plan to share your code with others or if you need to run your code on multiple systems.</p></li>
+<li><p>Flexibility: Virtual environments make it easy to switch between different Python versions or package configurations. This can be useful if you need to work on multiple projects that require different versions of Python or different package dependencies.</p></li>
+<li><p>Security: When you install packages in a virtual environment, you are not affecting the global Python installation on your system. This means that any security vulnerabilities or issues with the packages you install are contained within the virtual environment, reducing the risk of affecting other parts of your system.</p></li>
+</ul>
+<p>Create a Python environment using the virtualenv_create() function. This function creates a new virtual environment and installs the specified packages. For example, to create a virtual environment called “myenv” and install the pandas package, you can run the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_python</span>(<span class="st">"/Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate/bin/python"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">virtualenv_create</span>(<span class="st">"myenv"</span>, <span class="at">packages =</span> <span class="st">"pandas"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<p>Finally, you can install additional Python packages using the py_install() function. This function installs the specified packages in the active Python environment. For example, to install the pandas package, you can run the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install packages</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">conda_install</span>(<span class="st">"r-reticulate"</span>, <span class="st">"pandas"</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>pandas <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"pandas"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">py_install</span>(<span class="st">"pandas"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<p>The next console achieves the same result with Conda and import the Pandas module.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#import numpy as np</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#import pandas as pd</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>cars <span class="op">=</span> sns.load_dataset(<span class="st">"mpg"</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#print(cars)</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>cars.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install packages</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">conda_install</span>(<span class="st">"r-reticulate"</span>, <span class="st">"pandas"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>pandas <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"pandas"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let us explore some Python packages to see how we can intregrate them in R. For example, Seaborn is a visualization library based on Matplotlib. It provides a high-level interface for creating informative and attractive statistical graphics. It even gives us access to know data sets such as mtcars or Anscombe’s quartet.</p>
+<p>Anscombe’s quartet is a set of four datasets that have nearly identical descriptive statistics, yet have very different plots when graphed. The quartet was created by the statistician Francis Anscombe in 1973 to demonstrate the importance of visualizing data and the limitations of summary statistics. Each dataset consists of 11 (x, y) pairs, and the four datasets are designed to have the same mean, variance, correlation, and linear regression line. However, when plotted, each dataset reveals a very different relationship between x and y. The quartet is often used to illustrate the importance of data visualization and exploratory data analysis in understanding and interpreting statistical results.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"ticks"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the example dataset for Anscombe's quartet</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> sns.load_dataset(<span class="st">"anscombe"</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the results of a linear regression within each dataset</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>sns.lmplot(</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df, x<span class="op">=</span><span class="st">"x"</span>, y<span class="op">=</span><span class="st">"y"</span>, col<span class="op">=</span><span class="st">"dataset"</span>, hue<span class="op">=</span><span class="st">"dataset"</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    col_wrap<span class="op">=</span><span class="dv">2</span>, palette<span class="op">=</span><span class="st">"muted"</span>, ci<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">4</span>, scatter_kws<span class="op">=</span>{<span class="st">"s"</span>: <span class="dv">50</span>, <span class="st">"alpha"</span>: <span class="dv">1</span>}</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="firststeps_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="392"></p>
+</div>
+</div>
+<p>Let us load the “mpg” dataset and display the first few rows of the data. If you haven’t already, you’ll need to install Seaborn first <span class="citation" data-cites="seaborn">(<a href="references.html#ref-seaborn" role="doc-biblioref">Waskom 2021</a>)</span>.</p>
+<p>Load Seaborn and the “mpg” dataset: Once you have Seaborn installed, you can load it and the “mpg” dataset using the following Python code. It imports the Seaborn package as “sns” and loads the “mpg” dataset into a variable called “cars”. Moreover, I also import the Pandas package which we will use as well.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#import numpy as np</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#import pandas as pd</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>cars <span class="op">=</span> sns.load_dataset(<span class="st">"mpg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To display the first few rows of the “mpg” dataset, you can use the head() function from the Pandas library, which is included in the Seaborn package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#print(cars)</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>cars.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    mpg  cylinders  displacement  ...  model_year  origin                       name
 0  18.0          8         307.0  ...          70     usa  chevrolet chevelle malibu
@@ -258,9 +349,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 [5 rows x 9 columns]</code></pre>
 </div>
 </div>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<p>The Pandas library is a popular data analysis toolkit for Python. It provides a wide range of functions and tools for working with structured data. For example, the describe() function is used to generate descriptive statistics of a Pandas DataFrame or Series. When called on a DataFrame or Series, the describe() function provides summary statistics such as count, mean, standard deviation, minimum, maximum, and quartiles. The next console shows how to generate descriptive statistics for the “mpg” dataset using the describe() function, you can use the following Python code:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>cars.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>cars.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              mpg   cylinders  ...  acceleration  model_year
 count  398.000000  398.000000  ...    398.000000  398.000000
@@ -274,7 +365,10 @@ max     46.600000    8.000000  ...     24.800000   82.000000
 
 [8 rows x 7 columns]</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cars.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Or consider the mean() function which is used to calculate the arithmetic mean of a Pandas DataFrame or Series. When called on a DataFrame or Series, the mean() function calculates the average value of all the elements in the DataFrame or Series.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>cars.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>mpg               23.514573
 cylinders          5.454774
@@ -288,33 +382,70 @@ dtype: float64
 &lt;string&gt;:1: FutureWarning: The default value of numeric_only in DataFrame.mean is deprecated. In a future version, it will default to False. In addition, specifying 'numeric_only=None' is deprecated. Select only valid columns or specify the value of numeric_only to silence this warning.</code></pre>
 </div>
 </div>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<p>Scipy is a popular library for scientific computing in Python, and it provides functions for calculating statistical values, such as the correlation coefficient. Start by importing the necessary packages. You’ll need the scipy.stats module to calculate the correlation coefficient, and you may also need numpy to work with arrays or matrices of data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>cars <span class="op">=</span> cars.dropna()</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mpg <span class="op">=</span> cars[<span class="st">"mpg"</span>]</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>horsepower <span class="op">=</span> cars[<span class="st">"horsepower"</span>]</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>scipy.stats.pearsonr(mpg, horsepower)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The scipy.stats module can calculate the correlation coefficient for two arrays, but if you have more than two variables, you’ll need to use a matrix. Use the stats.pearsonr() function to calculate the Pearson correlation coefficient. This function takes two arguments: the two arrays or matrices to compare, and it returns two values: the correlation coefficient and the p-value.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="op">=</span> cars[<span class="st">"mpg"</span>]</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>horsepower <span class="op">=</span> cars[<span class="st">"horsepower"</span>]</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>scipy.stats.pearsonr(mpg, horsepower)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error: ValueError: array must not contain infs or NaNs</code></pre>
+</div>
+</div>
+<p>Unfortuntely, there is a missing values problem that we need to fix first. In Python, missing values are typically represented by the special value NaN (Not a Number), which is part of the numpy library. There are different ways to drop missing values from a dataset, depending on the context and the desired outcome.</p>
+<p>Drop rows or columns with missing values: If you have missing values in your dataset and you want to remove entire rows or columns that contain at least one missing value, you can use the dropna() method. This method removes all rows that contain at least one missing value by default, but you can specify the argument axis=1 to remove columns instead.</p>
+<p>If you want to drop missing values only within a specific column, you can use the dropna() method with the subset argument. This argument specifies the column or columns to consider when dropping missing values. The next console shows the first approaches and the results of the correlation coeficient.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>cars <span class="op">=</span> cars.dropna()</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>mpg <span class="op">=</span> cars[<span class="st">"mpg"</span>]</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>horsepower <span class="op">=</span> cars[<span class="st">"horsepower"</span>]</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>scipy.stats.pearsonr(mpg, horsepower)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>PearsonRResult(statistic=-0.7784267838977761, pvalue=7.031989029403436e-81)</code></pre>
 </div>
 </div>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<p>Alternatively, if you have a pandas DataFrame, you can use the pandas.DataFrame.corr() method to calculate the correlation coefficient for all pairs of columns.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> smf.ols(<span class="st">'mpg ~ horsepower'</span>, data<span class="op">=</span>cars).fit()</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>corr_matrix <span class="op">=</span> cars.corr(method<span class="op">=</span><span class="st">'pearson'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;string&gt;:1: FutureWarning: The default value of numeric_only in DataFrame.corr is deprecated. In a future version, it will default to False. Select only valid columns or specify the value of numeric_only to silence this warning.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(corr_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   mpg  cylinders  ...  acceleration  model_year
+mpg           1.000000  -0.777618  ...      0.423329    0.580541
+cylinders    -0.777618   1.000000  ...     -0.504683   -0.345647
+displacement -0.805127   0.950823  ...     -0.543800   -0.369855
+horsepower   -0.778427   0.842983  ...     -0.689196   -0.416361
+weight       -0.832244   0.897527  ...     -0.416839   -0.309120
+acceleration  0.423329  -0.504683  ...      1.000000    0.290316
+model_year    0.580541  -0.345647  ...      0.290316    1.000000
+
+[7 rows x 7 columns]</code></pre>
+</div>
+</div>
+<p>In the next two chapter we learn more about data preparation, analysis, and visualization with Python. For example, the statsmodels.formula.api module is used to create and fit a linear regression model. The formula for the regression model is defined using a string that specifies the dependent variable and the independent variables, separated by ~ operator which is very similar compared to R. The ols() method is used to create the model, passing in the formula and the dataset. Finally, the fit() method is used to fit the model to the data, and the summary() method is used to print a summary of the model results.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> smf.ols(<span class="st">'mpg ~ horsepower'</span>, data<span class="op">=</span>cars).fit()</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                            OLS Regression Results                            
 ==============================================================================
 Dep. Variable:                    mpg   R-squared:                       0.606
 Model:                            OLS   Adj. R-squared:                  0.605
 Method:                 Least Squares   F-statistic:                     599.7
-Date:                Fri, 24 Mar 2023   Prob (F-statistic):           7.03e-81
-Time:                        12:11:24   Log-Likelihood:                -1178.7
+Date:                Sat, 08 Apr 2023   Prob (F-statistic):           7.03e-81
+Time:                        18:12:04   Log-Likelihood:                -1178.7
 No. Observations:                 392   AIC:                             2361.
 Df Residuals:                     390   BIC:                             2369.
 Df Model:                           1                                         
@@ -335,26 +466,16 @@ Notes:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</code></pre>
 </div>
 </div>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"ticks"</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the example dataset for Anscombe's quartet</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> sns.load_dataset(<span class="st">"anscombe"</span>)</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the results of a linear regression within each dataset</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>sns.lmplot(</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df, x<span class="op">=</span><span class="st">"x"</span>, y<span class="op">=</span><span class="st">"y"</span>, col<span class="op">=</span><span class="st">"dataset"</span>, hue<span class="op">=</span><span class="st">"dataset"</span>,</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    col_wrap<span class="op">=</span><span class="dv">2</span>, palette<span class="op">=</span><span class="st">"muted"</span>, ci<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">4</span>, scatter_kws<span class="op">=</span>{<span class="st">"s"</span>: <span class="dv">50</span>, <span class="st">"alpha"</span>: <span class="dv">1</span>}</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="firststeps_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="392"></p>
-</div>
-</div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-reticulate" class="csl-entry" role="doc-biblioentry">
+Ushey, Kevin, JJ Allaire, and Yuan Tang. 2023. <span>“Reticulate: Interface to ’Python’.”</span> <a href="https://CRAN.R-project.org/package=reticulate">https://CRAN.R-project.org/package=reticulate</a>.
+</div>
+<div id="ref-seaborn" class="csl-entry" role="doc-biblioentry">
+Waskom, Michael L. 2021. <span>“Seaborn: Statistical Data Visualization.”</span> <em>Journal of Open Source Software</em> 6 (60): 3021. <a href="https://doi.org/10.21105/joss.03021">https://doi.org/10.21105/joss.03021</a>.
+</div>
+</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

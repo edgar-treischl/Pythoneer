@@ -2,10 +2,22 @@
 
 # Preface {.unnumbered}
 
-Welcome to the Pythoneer website. The Pythoneer project aims to support the transition of R user into the Python world. The project is work in progress and at a very early stage. 
+Welcome to the Pythoneer website. The Pythoneer project aims to support the transition of R user into the Python world. There are several reasons why it can be beneficial to learn Python even if you know R:
 
+- Versatility: While R is a great language for statistical analysis and data visualization, Python is a more general-purpose language that can be used for a wider variety of tasks, such as web development, machine learning, and scientific computing.
+
+- Large and active community: Python has a much larger and more active community than R, which means that there are more resources and support available if you run into problems or want to learn new things.
+
+- Popularity in industry: Python is widely used in industry, particularly in areas such as data science and machine learning, so learning Python can make you more competitive in the job market.
+
+- Integration with other tools: Python has many libraries and packages that allow it to integrate with other tools, such as databases, big data frameworks, and cloud computing platforms, making it a more flexible and powerful tool for data analysis and computation.
+
+- Different approaches to problem-solving: R and Python have different approaches to problem-solving and data analysis, so learning both can expand your skill set and enable you to tackle a wider range of problems.
+
+
+Keep in mind that the project is work in progress and at a very early stage. 
 
 ```{python}
 #Print with Python
-print("Hello world")
+print("Hello Python World")
 ```

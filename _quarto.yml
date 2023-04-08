@@ -14,6 +14,7 @@ book:
     - visualization.qmd
     - references.qmd
 
+cover-image: cover.jpeg
 bibliography: references.bib
 
 format:
