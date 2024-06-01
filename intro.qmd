@@ -18,81 +18,51 @@ knitr::opts_chunk$set(
 
 ```
 
+This chapter aims to provide you with a brief overview of the book. We will discuss the motivation behind this book, the target audience, and the structure of the book. Formost, I try to outline how you can transfer your R knowledge to Python. 
 
-
-I tried to learn Python several times. Once I had a very peculiar class in which we should learn Python for processing natural language. Well, it was more about text mining than applying Python. I tried to learn Python with the help of several books which introduced all the ins and outs of Python. Before I started to learn Python the first time, I fluently spoke several other statistics software languages like R or Stata. I had basic skills in other languages like HTML, CSS, JavaScript. I wrote my PhD with LaTeX. Coding and programming languages were not new for me, but still I failed to learn Python.
-
-It is really a shame, since I consider myself a tech-savvy without having the heavy programming background, but with a lot of fun learning new things and enjoy coding. Well, at least, if we get some results. For this reason I started this website. I was sick of reading books about Python without having the impression that I learn what I should learn to improve my skills. This impression could also be due to my educational background. I know what a function is, what a loop does, and have some background in statistics, even though the latter is limited since I am home in the social sciences.
-
-Anyway, this website is the result of reading many books that could not explain what I was seeking. If you want to learn Python to automate processes, learn some statistical procedures from the scratch, or use Python to program some games, this website will not help you in any way. However, you do wanna transfer your knowledge from other languages like R, if you are familiar with multivariate (non-) linear regression techniques or do you have background in empirical social science, than this website might help you transfer your knowledge to Python. Let be give you an example why I started this website.
+What is my motivation to write this book? I tried to learn Python with the help of several books and classes. Coding and programming languages were not new for me, but still I failed to learn Python. I consider myself a tech-savvy without having a heavy programming background, but a lot of fun learning new things and enjoy coding. For this reason I started this book. If you want to learn Python to automate processes, apply statistical procedures from the scratch, or use Python to program games, this book will not help you in any way. However, you do wanna transfer your R knowledge, this book might be right choice. Let be give you an example why I started this book
 
 ## How (not) to calculate basic statistics {.unnumbered}
 
-The last Python book I read, introduced probably over a hundred pages about the different data structure, and of course, we need to know that to handle Python. I certainly don’t argue about this point, but instead of providing me meaningful examples to illustrate this point, I am reading about about artificial examples that not even work when I copied the code and run it in my own console. Well, shit happens, don’t you think? I really started to get the creep as I reached a statistics section. Let’s see what I learned from this chapter.
-
-In Python, you have to import the according libraries and install first, in case you work with a library the very first time. We will cover these points later, for the moment it is enough to look at the Python code and output. So, I import the seaborn package in order to have some data at hand. The `seaborn.get_dataset_names()` function returns all available data sets.
+Before we can do anything, we have to install Python, learn how to manage virtual environments, and we how we can install packages. As with R, you have to install and import libraries for most tasks. We will cover these steps in the next chapter. For now, we will focus on some code snippets only. Say we use the seaborn package because it provides us with some data. We can use the mpg data set as cars and fool around with it. Only if you have never seen the mpg data set, you can use the following code snippet to get an overview of the data set.
 
 
 ```{python}
 #import seaborn to get some data
 import seaborn as sns
-sns.get_dataset_names()
-```
 
- We can save the mpg data under the name cars and use the print function to examine the data.
-
-```{python}
 #use the mpg data set as cars
 cars = sns.load_dataset("mpg") 
 print(cars)
 ```
 
 
-So, what did I learn in the chapter? Well, how can we calculate an mean with Python? Shouldn’t be that though. I know how to calculate a mean by hand since my early days of school and how it is done in a statistic software. The authors offered me the following solution:
+
+Suppose a mean function is not implemented in Python. We can create our own function to calculate the mean. We need to define a function that calculates the mean of an array. First, we have to define the function with the def keyword, followed by the name of the function and the input value. The function should return the sum of the array divided by the length of the array. 
 
 ```{python}
+# Define 
 def mean (array): 
     n = len(array)
     return sum(array) / n
 
+#A
 mean(cars.mpg)
 ```
 
-In the code snippet we define the function mean to create a mean, within this function we define n as the length(len) of the array and the functions returns a value, which divides the sum of the array by the length n. Fine. That’s exactly a cool way to show us how a functions works. We have to provide a name of a function, tell Python what the function should do, in this case with an array of numbers.
-
-In my experience, I always learned how functions and other concepts work in much more artificial way. Look how I learned how a function  works in Python:
+That’s a cool way to show us how a function works. We have to provide a name of a function and tell Python what the function does. I always learned how functions and other concepts work in much more artificial way, especially in classes courses about Python. Look how I learned how a function works in Python:
 
 ```{python}
-#Create your own function
+#Create a function that inserts the name of the input value into a sentence
+
 def hello(name):
     return (f"Hallo, {name}! How are you?")
 
-# Call the function and give value for the input name
+# Call the function and give it value as input
 hello("Edgar")
 ```
 
-Thus, we create the hello function that returns a sentence and inserts the name of the input value. Nothing wrong about that, even though calculating a mean seems a little bit more realistic to illustrate why we need such a function.
-
-Anyway, in the next steps the author gives us a function for the mean, a function for the median, a function for the modus, a function to calculate the variance and, I am dead serious, other functions for others measure of central tendency. Come on, this guy can’t be serious, we should learn how this works in practice. Use NumPy to get the scientific toolkit and pandas for tabular processing and the presentation of data. The latter comes with a lot of functions we can use them in order to calculate basic statistics and more advanced stuff. Use the describe function to get an overview about the data. Let’s see how it works.
-
-```{python}
-import numpy as np
-import pandas as pd
-
-cars.describe()
-```
-
-
-So, we have to append the describe() function to the saved cars data in order to get an overview of the central tendency measures. You can do the same with all other functions that calculate other measures, such as the mean or standard deviance:
-
-```{python}
-cars.mean()
-cars.std()
-```
-
-So, what you do think? Shall we learn how to define our own function to calculate the mean or choose the easy way and let a package calculate the “hard” stuff for us. I would say both. We learned on this entry how to write an own function by solving a real-world problem. In case we didn’t know how to calculate a mean in Python we could use a function and I provided you on purpose with a second example to show you how many others explain a function. However, after learning what a function is, we need to know how we could work and spent our time more efficiently.
-
-This point becomes bothersome if we spent too much of our time with things that have a simple solution. For instance, guess what the next code does. And I guess you will skip the code after line 2, well that’s at least what recommend if you know what a correlation is.
+Thus, we create the hello function that returns a sentence and inserts the name of the input value. Nothing wrong about that, even calculating a mean seems a little bit more realistic to illustrate why we need such a function. Anyway, in some classes I learned how to calculate the mean, the median, and the modus. Maybe a function to calculate the variance or others measure of central tendency. You know what Pearson R is? Guess what the next code does? And I guess you will skip the code after line 2, well that’s what recommend since the code only illustrates my point. The next console shows how to calculate the correlation coefficient between two arrays and I actually copied to code from a book. 
 
 
 ```{python}
@@ -126,13 +96,38 @@ cost = [300, 400, 600, 700, 666]
 print(correlation(size, cost))
 ```
 
-It’s the “devil’s code”! Of course, I am just kidding, but please don’t get me wrong. I think it is very useful to see how a correlation coefficients is calculated. You should do it at least once per hand if you learn the concept for the first time. But in my case I don’t have to learn what a correlation is. Let’s learn how Python works, but in an efficient way:
+
+Please, use numpy to get the scientific toolkit and pandas for tabular processing and the presentation of data. The word numpy stands for numerical Python and is a package that provides us with a lot of functions to work with arrays. The pandas package is a data manipulation and analysis library that provides us with data structures and functions to manipulate data. We can use the numpy package to calculate the correlation coefficient between two arrays. The numpy package provides us with the corrcoef function that takes two arrays as input and returns the correlation coefficient. 
+
 
 ```{python}
+# corrcoef function from numpy (short: np): 
+import numpy as np
 np.corrcoef(size, cost)
 ```
 
-And we should at least look at the scatter plot in case we talk about correlations. The matplotlib provides a lot of different graphs for us.
+
+The pandas package provides us with the describe function that returns an overview of the data. We can use the mean and std functions to calculate the mean and standard deviation of the data. 
+
+
+
+```{python}
+import pandas as pd
+
+cars.describe()
+```
+
+
+We have to append the describe() function to the saved cars data in order to get an overview of the central tendency measures. You can do the same with all other functions that calculate other measures, such as the mean or standard deviance:
+
+```{python}
+cars.mean()
+cars.std()
+```
+
+
+
+And we should at least look at the scatter plot since we talk about correlations. The matplotlib provides a lot of different graphs for us. And in case you are an R user, you can even use the ggplot2 style, just to let you show some possibilities. But of course, we have to think more systematically how we can reach our goal in the next chapter.
 
 
 ```{python}
@@ -143,8 +138,11 @@ matplotlib.style.use('ggplot')
 plt.scatter(cars.mpg, cars.horsepower)
 ```
 
-And in case you are an R user, you can even use the ggplot2 style, just to let you show some possibilities. But of course, we have to think more systematically how we can reach our goal in the next chapter.
 
+
+## Summary
+
+This chapter provided you with a brief overview of the book. We discussed the motivation behind this book, the target audience, and the structure of the book. We also outlined how you can transfer your R knowledge to Python. In the next chapter, we will discuss how to install Python, manage virtual environments, and install packages. 
 
 
 
