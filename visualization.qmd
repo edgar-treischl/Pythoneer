@@ -2,103 +2,136 @@
 title: "Visualization"
 ---
 
-
-
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
-
 ```{r setup, include=FALSE}
 reticulate::use_python("/Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate/bin/python")
 
 ```
 
+When it comes to visualizations, R user know base R plots and very like the ggplot2 package. This chapter shows how to create visualizations with Python packages like plotnine that mimic the logic of the ggplot2 package. The latter implements the grammar of graphics, which is a powerful way to create visualizations. The grammar of graphics is a way to describe the components of a plot, such as the data, the aesthetics, and the geometries, in a structured way. This makes it possible to create complex visualizations by combining components.
+
+In this chapter I show how to create common visualizations with Python. First, I show how to create quick visualizations with the matplotlib package, which is the most popular package for creating visualizations in Python. I also show how to create visualizations with the seaborn package, which is another popular package for creating visualizations. The seaborn package is built on top of matplotlib and provides a high-level interface for creating attractive visualizations. Finally, I show how to create visualizations with the plotnine package, which is a Python implementation of the ggplot2 package. If you are familiar with ggplot2, you will feel right at home with plotnine. The plotnine package implements the grammar of graphics in Python.
+
+Let's start by loading some data. I will use the penguins dataset from the seaborn package and I import matplotlib. Furthermore, the matplotlib.pyplot module is imported as plt.
+
 ```{python}
+#importing seaborn the penguins dataset
 import seaborn as sns
+import matplotlib
+import matplotlib.pyplot as plt
+
 penguins = sns.load_dataset("penguins")
 penguins = penguins.dropna()
 penguins.head()
 ```
 
-
-
+The latter is a collection of command style functions that make matplotlib work like MATLAB. Each pyplot function makes some change to a figure. For example, a figure can contain multiple plots. The figure is the top-level container for all the plot elements. The axes is the actual plot. The axes contains the x-axis, the y-axis, the title, and the labels. The axes is the container for all the plot elements. The plot elements are the lines, the points, the bars, and the text that make up the plot.
 
 ## Categorical data
 
-<a href="https://seaborn.pydata.org/index.html" target="_blank"><img src="https://seaborn.pydata.org/_static/logo-wide-lightbg.svg" alt="The seaborn package" align="right" width="150" style="padding:10px"/></a>  
-
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
-
-
+As outlined, the searborn package is built on top of matplotlib and provides a high-level interface for creating attractive visualizations. The seaborn package provides a number of functions for creating visualizations of categorical data. For example, you can create bar graphs, box plots, and violin plots with the seaborn package. To create a bar graph of the bill length of the penguins grouped by species, append the .barplot() function to the sns object and specify the data, the x variable, and the y variable.
 
 ```{python, out.width = '95%'}
 #Bar graph
 sns.barplot(data=penguins, x="species", y="bill_length_mm")
-
 ```
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+The catplot() function can be used to create a variety of visualizations of categorical data. For example, you can create a box plot of the bill length of the penguins grouped by species with the catplot() function. To create a box plot, set the kind parameter to "box".
 
+```{python sns_box, eval = F}
+#Make a box plot with the catplot() function
+sns.catplot(data=penguins, kind="box", x="sex", y="bill_length_mm")
+```
 
-```{python, fig.width = 6}
-#Beeswarm
+![](lokal_pngs/sns_box-3.png)
+
+Box plots are a good way to visualize the distribution of a continuous variable within different categories, but they do not show the individual data points. A swarm plot is a good way to visualize the individual data points within different categories. A swarm plot is similar to a scatter plot, but it arranges the data points so that they do not overlap. To create a swarm plot of the bill length of the penguins grouped by species, set the kind parameter to "swarm".
+
+```{python, eval = F}
+#Make a swarm plot
 sns.catplot(data=penguins, kind="swarm", x="sex", y="bill_length_mm", hue="species")
 ```
 
+![](lokal_pngs/bees.png)
+
 ## Relationsships
 
-<a href="https://plotnine.readthedocs.io/en/stable/index.html#" target="_blank"><img src="https://plotnine.readthedocs.io/en/stable/_images/logo-540.png" alt="The plotnine package" align="right" width="150" style="padding:10px"/></a>  
-
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
-
+Next, we will focus on histograms and scatter plots. These are common visualizations for exploring numerical variables and the relationship between two continuous variables. To create a histogram of the body mass of the penguins, use the hist() function from the matplotlib package. The hist() function takes the data as input and creates a histogram of the data. The number of bins can be specified with the bins parameter.
 
 ```{python}
-import matplotlib
-import matplotlib.pyplot as plt
-matplotlib.style.use('ggplot')
+#Hist with matplotlib
+plt.hist(penguins.body_mass_g, bins=30)
+```
 
+And in case of a scatter plot, you can use the scatter() function from the matplotlib package. The scatter() function takes the x-axis variable and the y-axis variable as input and creates a scatter plot of the data. For example, how is the body mass of the penguins related to the bill length?
+
+```{python}
+#Scatterplot with matplotlib
 plt.scatter(penguins.body_mass_g, penguins.bill_length_mm)
 ```
 
+Coming from the R universe, I don't like the default style of matplotlib. I prefer the ggplot style. To use the ggplot style, you can use the matplotlib.style.use() function and set the style to "ggplot".
 
+```{python}
+#Adjust the style
+matplotlib.style.use('ggplot')
+plt.scatter(penguins.body_mass_g, penguins.bill_length_mm)
+```
 
-
-Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+Nobody said that the ggplot style is the best. It's just a matter of taste and I also do not like some details of default ggplot2 style. The good news is, we can adjust all details if we switch back to the ggplot2 approach and the plotnine package. Having an R background, the code to create the same scatter plot with the plotnine package looks very familiar. The ggplot() function creates a plot object; the aes() function is used to specify the x-axis variable and the y-axis variable. The geom_point() function adds points to the plot or more precisely, it adds a geom to the plot. The stat_smooth() function is used to add a linear regression line to the plot. The facet_wrap() function is used to create separate plots for each species.
 
 ```{python, results = "hide"}
-#Scatterplot
+#Scatterplot with plotnine
 from plotnine import *
 
-(ggplot(penguins, aes('body_mass_g', 'bill_length_mm'))
- + geom_point()
- + stat_smooth(method='lm')
- + facet_wrap('~species'))
+#Create a scatter plot with plotnine
+p = ggplot(penguins, aes('body_mass_g', 'bill_length_mm')) + geom_point()
+
+#Add a linear regression line and facet the plot by species
+p = p + stat_smooth(method='lm') + facet_wrap('~species')
+ 
+print(p)
 ```
 
-
-
-
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+Look at the next code: We can create a box plot of the body mass of the penguins grouped by species with the geom_boxplot() function. The factor() function is used to convert the species variable to a factor variable. In addition, themes in plotnine can be adjusted like in ggplot2. The theme_dark() function creates a dark theme for the plot or the theme_minimal() function creates a minimal theme for the plot.
 
 ```{python}
-#Histogram
-(ggplot(penguins, aes(x='body_mass_g'))
-    + geom_histogram()
+#| warning: false
+# A boxplot with factor variables and a theme
+p = ggplot(penguins) + geom_boxplot(aes(x='factor(species)', y='body_mass_g')) + theme_minimal()
+
+print(p)
+```
+
+# Fonts
+
+To use a custom font in a plot, you need to download the font file and specify the path to the font file. You can download a font file from a website like Google Fonts. For example, to download the Roboto font from Google Fonts, use the following code.
+
+```{python, eval = FALSE}
+import urllib.request
+
+url = 'https://fonts.googleapis.com/css2?family=Roboto'  
+# Replace with the Google Fonts URL
+font_path = 'Roboto-Regular.ttf'
+
+urllib.request.urlretrieve(url, font_path)
+
+```
+
+Next, you need to specify the path to the font file and set the font family in the plot. The following code shows how to use the Roboto font in a plot.
+
+```{python, eval = FALSE}
+import matplotlib.font_manager as fm
+
+font_path = 'Roboto-Regular.ttf'  # Path to your downloaded font
+font_prop = fm.FontProperties(fname=font_path)
+plt.rcParams['font.family'] = font_prop.get_name()
+
+plot = (
+    ggplot(data, aes('x', 'y')) +
+    geom_point() +
+    theme(
+        plot_title=element_text(family=font_prop.get_name(), size=14, weight='bold')
     )
-```
-
-
-
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-
-
-```{python}
-# geom_boxplot
-(ggplot(penguins)
-  + geom_boxplot(aes(x='factor(species)', y='body_mass_g'))
 )
+
 ```
-
-
-
-
-
-
