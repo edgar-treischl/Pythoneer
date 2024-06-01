@@ -116,6 +116,7 @@ The pandas package provides us with the describe function that returns an overvi
 # describe function from pandas (short: pd)
 import pandas as pd
 
+# describe cars
 cars.describe()
 ```
 
