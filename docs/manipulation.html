@@ -221,7 +221,7 @@ document.addEventListener("DOMContentLoaded", function() {
   <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate"><span class="header-section-number">3.4</span> Mutate</a></li>
   <li><a href="#summarize" id="toc-summarize" class="nav-link" data-scroll-target="#summarize"><span class="header-section-number">3.5</span> Summarize</a>
   <ul class="collapse">
-  <li><a href="#remember" id="toc-remember" class="nav-link" data-scroll-target="#remember">REMEMBER</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -246,41 +246,38 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </header>
 
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+<p>What is dplyr? The dplyr package is designed for data manipulation, written and maintained by Hadley Wickham. It is part of the tidyverse, an ecosystem of packages designed with common APIs and a shared philosophy. Dplyr is designed to abstract common data manipulation tasks into a consistent API. However, the pandas library provides similar functions. The pandas package is a powerful data manipulation library in Python. It provides data structures and functions to manipulate data and in this chapter we will see how to use dplyr functions work in Python.</p>
+<p>First, we need to import the necessary libraries. We will use pandas and seaborn. Furthermore, we will load the penguins dataset with <code>load_dataset</code> from seaborn. Let us have a look at the first five rows of the dataset with the .head function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">"penguins"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> penguins.dropna()</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>penguins.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Import libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Load dataset</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">"penguins"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>How does the dataset look like? The .head() function is used to show the first five rows of the dataset. The .tail() function is used to show the last five rows of the dataset. The .shape function is used to show the dimensions of the dataset. Overall, the penguins dataset contains 333 entries and 7 columns. The columns are for example species, island, and body_mass</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Inspect the first five rows of the dataset</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>penguins.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  species     island  bill_length_mm  ...  flipper_length_mm  body_mass_g     sex
 0  Adelie  Torgersen            39.1  ...              181.0       3750.0    Male
 1  Adelie  Torgersen            39.5  ...              186.0       3800.0  Female
 2  Adelie  Torgersen            40.3  ...              195.0       3250.0  Female
+3  Adelie  Torgersen             NaN  ...                NaN          NaN     NaN
 4  Adelie  Torgersen            36.7  ...              193.0       3450.0  Female
-5  Adelie  Torgersen            39.3  ...              190.0       3650.0    Male
 
 [5 rows x 7 columns]</code></pre>
 </div>
 </div>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+<p>Maybe you did not realize it, but the penguins dataset contains missing values. The dropna function is used to remove missing values from the dataset. And we can append the .info() function to get an overview of the dataset. The .info() function shows the number of non-null entries in each column. The dataset contains 333 entries and 7 columns.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>penguins.dtypes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>species               object
-island                object
-bill_length_mm       float64
-bill_depth_mm        float64
-flipper_length_mm    float64
-body_mass_g          float64
-sex                   object
-dtype: object</code></pre>
-</div>
-</div>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>penguins.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Drop missing values</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> penguins.dropna()</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Get an overview of the dataset</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>penguins.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 Int64Index: 333 entries, 0 to 343
@@ -298,12 +295,27 @@ dtypes: float64(4), object(3)
 memory usage: 20.8+ KB</code></pre>
 </div>
 </div>
+<p>If you want to know the type of the variables in the dataset, you can use the .dtypes function. The dtypes function shows the data types of the variables. In this dataset, the variables species, island, and sex are of type object. Or variable bill_length_mm is of type float64.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#data types of the variables</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>penguins.dtypes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>species               object
+island                object
+bill_length_mm       float64
+bill_depth_mm        float64
+flipper_length_mm    float64
+body_mass_g          float64
+sex                   object
+dtype: object</code></pre>
+</div>
+</div>
 <section id="filter" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="filter"><span class="header-section-number">3.1</span> Filter</h2>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+<p>A common task in data manipulation is to filter the dataset. Suppose you want to filter the penguins dataset and apply an analysis only for observations for the species Adelie. Use .query() to filter the dataset. The query function is a powerful tool to filter datasets. Append .query() to the dataset and specify the condition you want to filter for.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Filter data</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>penguins.query(<span class="st">'species == "Adelie"'</span>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Filter penguis dataset where species is Adelie</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>penguins.query(<span class="st">'species == "Adelie"'</span>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  species     island  bill_length_mm  ...  flipper_length_mm  body_mass_g     sex
 0  Adelie  Torgersen            39.1  ...              181.0       3750.0    Male
@@ -315,29 +327,28 @@ memory usage: 20.8+ KB</code></pre>
 [5 rows x 7 columns]</code></pre>
 </div>
 </div>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+<p>You can also filter for multiple conditions. Say you want to filter for the species Adelie, but only if the sex of the penguins is not male.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Filter data</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>penguins.query(<span class="st">'species == "Adelie" &amp; sex == "Male" '</span>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Filter data with mulqitple conditions</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>penguins.query(<span class="st">'species == "Adelie" &amp; sex != "Male" '</span>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   species     island  bill_length_mm  ...  flipper_length_mm  body_mass_g   sex
-0   Adelie  Torgersen            39.1  ...              181.0       3750.0  Male
-5   Adelie  Torgersen            39.3  ...              190.0       3650.0  Male
-7   Adelie  Torgersen            39.2  ...              195.0       4675.0  Male
-13  Adelie  Torgersen            38.6  ...              191.0       3800.0  Male
-14  Adelie  Torgersen            34.6  ...              198.0       4400.0  Male
+<pre><code>   species     island  bill_length_mm  ...  flipper_length_mm  body_mass_g     sex
+1   Adelie  Torgersen            39.5  ...              186.0       3800.0  Female
+2   Adelie  Torgersen            40.3  ...              195.0       3250.0  Female
+4   Adelie  Torgersen            36.7  ...              193.0       3450.0  Female
+6   Adelie  Torgersen            38.9  ...              181.0       3625.0  Female
+12  Adelie  Torgersen            41.1  ...              182.0       3200.0  Female
 
 [5 rows x 7 columns]</code></pre>
 </div>
 </div>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
 </section>
 <section id="arrange" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="arrange"><span class="header-section-number">3.2</span> Arrange</h2>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+<p>Sometimes it is handy to sort the dataset. The .sort_values() function is used to sort the dataset. Append .sort_values() to the dataset and specify the variable you want to sort by.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Sort variables</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>penguins.sort_values(by<span class="op">=</span><span class="st">"body_mass_g"</span>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Sort variables</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>penguins.sort_values(by<span class="op">=</span><span class="st">"body_mass_g"</span>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       species     island  ...  body_mass_g     sex
 190  Chinstrap      Dream  ...       2700.0  Female
@@ -349,10 +360,10 @@ memory usage: 20.8+ KB</code></pre>
 [5 rows x 7 columns]</code></pre>
 </div>
 </div>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+<p>In other instances, you might want to sort the descendingly. The ascending parameter is used to sort the dataset in ascending order. By default, the ascending parameter is set to True. Set ascending to FALSE to sort the variable in descending order.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Sort variables descendingly</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>penguins.sort_values(by<span class="op">=</span><span class="st">"body_mass_g"</span>, ascending<span class="op">=</span><span class="va">False</span>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Sort variables descendingly</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>penguins.sort_values(by<span class="op">=</span><span class="st">"body_mass_g"</span>, ascending<span class="op">=</span><span class="va">False</span>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    species  island  bill_length_mm  ...  flipper_length_mm  body_mass_g   sex
 237  Gentoo  Biscoe            49.2  ...              221.0       6300.0  Male
@@ -367,10 +378,10 @@ memory usage: 20.8+ KB</code></pre>
 </section>
 <section id="select" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="select"><span class="header-section-number">3.3</span> Select</h2>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+<p>Large datasets often contain many variables and are difficult to work with. The select function is used to select variables. For example, put the columns species and island in brackets to select them.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Select via []</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>penguins[[<span class="st">'species'</span>, <span class="st">'island'</span>]].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Select columns</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>penguins[[<span class="st">'species'</span>, <span class="st">'island'</span>]].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  species     island
 0  Adelie  Torgersen
@@ -380,9 +391,10 @@ memory usage: 20.8+ KB</code></pre>
 5  Adelie  Torgersen</code></pre>
 </div>
 </div>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+<p>Another way to select columns is to use the .loc function. The latter is used to access a group of rows and columns by labels or a boolean array. For example, select all columns from island to bill_depth_mm.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>penguins.loc[:, <span class="st">'island'</span>:<span class="st">'bill_depth_mm'</span>].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#select columns with .loc: from island to bill_depth_mm</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>penguins.loc[:, <span class="st">'island'</span>:<span class="st">'bill_depth_mm'</span>].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      island  bill_length_mm  bill_depth_mm
 0  Torgersen            39.1           18.7
@@ -392,10 +404,14 @@ memory usage: 20.8+ KB</code></pre>
 5  Torgersen            39.3           20.6</code></pre>
 </div>
 </div>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+<p>You can also select columns by their index. For example, select the first three columns of the dataset. Or suppose you want to check if a variable is in a specified set. Use the isin function to check if the variable is included in a set. For example, select the observations where the species is Adelie.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="op">=</span> penguins[penguins[<span class="st">"species"</span>].isin([<span class="st">"Adelie"</span>])]</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>adelie.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#A set with the species Adelie</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>myset <span class="op">=</span> [<span class="st">'Adelie'</span>]</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Select observations where the species isin the set</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>adelie <span class="op">=</span> penguins[penguins[<span class="st">"species"</span>].isin(myset)]</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>adelie.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  species     island  bill_length_mm  ...  flipper_length_mm  body_mass_g     sex
 0  Adelie  Torgersen            39.1  ...              181.0       3750.0    Male
@@ -410,11 +426,14 @@ memory usage: 20.8+ KB</code></pre>
 </section>
 <section id="mutate" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="mutate"><span class="header-section-number">3.4</span> Mutate</h2>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+<p>The mutate function is used to create new variables. We can use the assign function to create a new variable. For example, create a new variable weight which is a copy of the variable body_mass_g. Next, the .assign() function is used to create a new variable body_mass_kilo which is the body_mass_g divided by 1000. Feel free to manipulate the dataset and create new variables.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>weight <span class="op">=</span> penguins[[<span class="st">'body_mass_g'</span>]]</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>weight <span class="op">=</span> weight.assign(body_mass_kilo <span class="op">=</span> weight[<span class="st">'body_mass_g'</span>] <span class="op">/</span><span class="dv">1000</span>)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>weight.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new dataset</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>weight <span class="op">=</span> penguins[[<span class="st">'body_mass_g'</span>]]</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Assign a new variable by common operations</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>weight <span class="op">=</span> weight.assign(body_mass_kilo <span class="op">=</span> weight[<span class="st">'body_mass_g'</span>] <span class="op">/</span><span class="dv">1000</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>weight.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   body_mass_g  body_mass_kilo
 0       3750.0            3.75
@@ -427,9 +446,11 @@ memory usage: 20.8+ KB</code></pre>
 </section>
 <section id="summarize" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="summarize"><span class="header-section-number">3.5</span> Summarize</h2>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+<p>How to calculate summary statistics of the dataset? The summarize function is used to calculate summary statistics of the dataset. The .describe() function is used to calculate summary statistics of the dataset.</p>
+<p>The summarize function is used to calculate summary statistics of the dataset. The .describe() function is used to calculate summary statistics of the dataset.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>penguins.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Describe the dataset</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>penguins.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       bill_length_mm  bill_depth_mm  flipper_length_mm  body_mass_g
 count      333.000000     333.000000         333.000000   333.000000
@@ -442,9 +463,10 @@ min         32.100000      13.100000         172.000000  2700.000000
 max         59.600000      21.500000         231.000000  6300.000000</code></pre>
 </div>
 </div>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+<p>Another way to calculate summary statistics is to use the .groupby() function. The .groupby function provides the power of the split-apply-combine pattern. The .groupby function is used to split the dataset into groups. The .apply function is used to apply a function to each group. The .combine function is used to combine the results into a new dataset. For example, calculate the mean body_mass_g of the penguins grouped by sex. Append .groupby() to the dataset and specify the variable you want to group by. In addition, use the .mean() function to calculate the mean of the grouped variable.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>penguins[[<span class="st">"sex"</span>, <span class="st">"body_mass_g"</span>]].groupby(<span class="st">"sex"</span>).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># .groupby() and .mean() to calculate the mean body_mass_g of the penguins</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>penguins[[<span class="st">"sex"</span>, <span class="st">"body_mass_g"</span>]].groupby(<span class="st">"sex"</span>).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        body_mass_g
 sex                
@@ -452,9 +474,10 @@ Female  3862.272727
 Male    4545.684524</code></pre>
 </div>
 </div>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+<p>The .groupby function can be used to group by multiple variables. For example, calculate the mean body_mass_g of the penguins grouped by sex and species.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>penguins.groupby([<span class="st">"sex"</span>, <span class="st">"species"</span>])[<span class="st">"body_mass_g"</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Add several variables to group by</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>penguins.groupby([<span class="st">"sex"</span>, <span class="st">"species"</span>])[<span class="st">"body_mass_g"</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sex     species  
 Female  Adelie       3368.835616
@@ -466,10 +489,10 @@ Male    Adelie       4043.493151
 Name: body_mass_g, dtype: float64</code></pre>
 </div>
 </div>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+<p>Finally, the .count() function is used to count the number of entries in each category of a variable.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#shortr penguins["species"].value_counts()</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>penguins.groupby(<span class="st">"species"</span>)[<span class="st">"species"</span>].count()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#shortr penguins["species"].value_counts()</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>penguins.groupby(<span class="st">"species"</span>)[<span class="st">"species"</span>].count()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>species
 Adelie       146
@@ -478,18 +501,19 @@ Gentoo       119
 Name: species, dtype: int64</code></pre>
 </div>
 </div>
-<section id="remember" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="remember">REMEMBER</h3>
-<ul>
-<li>Aggregation statistics can be calculated on entire columns or rows.</li>
-<li>groupby provides the power of the split-apply-combine pattern.</li>
-<li>value_counts is a convenient shortcut to count the number of entries in each category of a variable.</li>
-</ul>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+<section id="summary" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="summary">Summary</h3>
+<p>In this script, we have shown how to use dplyr functions in Python. Keep in mind that the dplyr package is designed for data manipulation in R. However, the pandas library in Python provides similar functions to dplyr. Aggregation statistics can be calculated on entire columns or rows. The groupby function provides the power of the split-apply-combine pattern. The value_counts is a convenient shortcut to count the number of entries in each category of a variable.</p>
+<p>The .loc function is used to access a group of rows and columns by labels or a boolean array. Say we want to create a indicator variable Adelie. The .loc function is used to create a new variable Adelie. The first line of code creates a new variable Adelie with the .loc function. The second line of code fills the rest of the column with False. The third line of code selects the columns species and Adelie.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>penguins.loc[penguins[<span class="st">'species'</span>] <span class="op">==</span> <span class="st">"Adelie"</span>, <span class="st">'Adelie'</span>] <span class="op">=</span> <span class="st">'True'</span> </span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>penguins.loc[penguins[<span class="st">'species'</span>] <span class="op">!=</span> <span class="st">"Adelie"</span>, <span class="st">'Adelie'</span>] <span class="op">=</span> <span class="st">'False'</span> </span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>penguins[[<span class="st">'species'</span>, <span class="st">'Adelie'</span>]].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new variable with the .loc function</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>penguins.loc[penguins[<span class="st">'species'</span>] <span class="op">==</span> <span class="st">"Adelie"</span>, <span class="st">'Adelie'</span>] <span class="op">=</span> <span class="st">'True'</span> </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Fill the rest of the column with False</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>penguins.loc[penguins[<span class="st">'species'</span>] <span class="op">!=</span> <span class="st">"Adelie"</span>, <span class="st">'Adelie'</span>] <span class="op">=</span> <span class="st">'False'</span> </span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Select the columns species and Adelie</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>penguins[[<span class="st">'species'</span>, <span class="st">'Adelie'</span>]].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  species Adelie
 0  Adelie   True
@@ -499,10 +523,13 @@ Name: species, dtype: int64</code></pre>
 5  Adelie   True</code></pre>
 </div>
 </div>
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+<p>So say we want to create a new variable check_length which checks if the bill_length_mm is less than or equal to 40. The .apply() function is used to apply a function along an axis of the dataframe. For example, the lambda function is used to create a new variable check_length. It checks if the bill_length_mm is less than or equal to 40. If not, the function returns False. If the condition is met, the function returns True.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>penguins[<span class="st">'check_length'</span>] <span class="op">=</span> penguins[<span class="st">'bill_length_mm'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="st">'True'</span> <span class="cf">if</span> x <span class="op">&lt;=</span> <span class="dv">40</span> <span class="cf">else</span> <span class="st">'False'</span>)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>penguins[[<span class="st">'bill_length_mm'</span>, <span class="st">'check_length'</span>]].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new variable check_length: check if the bill_length_mm is less than or equal to 40</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>penguins[<span class="st">'check_length'</span>] <span class="op">=</span> penguins[<span class="st">'bill_length_mm'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="st">'True'</span> <span class="cf">if</span> x <span class="op">&lt;=</span> <span class="dv">40</span> <span class="cf">else</span> <span class="st">'False'</span>)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Select the columns bill_length_mm and check_length</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>penguins[[<span class="st">'bill_length_mm'</span>, <span class="st">'check_length'</span>]].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   bill_length_mm check_length
 0            39.1         True
