@@ -2,9 +2,25 @@
 title: "First steps"
 ---
 
+```{r setup, include=FALSE}
+reticulate::use_python("/Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate/bin/python")
+
+knitr::opts_chunk$set(
+  #fig.width = 6,
+  #fig.height = 4,
+  #fig.path = "images/",
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  eval = TRUE,
+  comment = "#>"
+)
+
+```
+
 Python and R are both popular programming languages used for data analysis and machine learning tasks. While both languages have their own strengths and weaknesses, there are situations where using both languages together can be beneficial.
 
-using Python and R together can be beneficial when you want to take advantage of the strengths of both languages. Whether you want to use R libraries in Python, Python libraries in R, or combine both languages in a single application, there are many options available for integrating Python and R. Here are some ways in which Python can be used with R:
+Using Python and R together can be beneficial when you want to take advantage of the strengths of both languages. Whether you want to use R libraries in Python, Python libraries in R, or combine both languages in a single application, there are many options available for integrating Python and R. Here are some ways in which Python can be used with R:
 
 - R can be called from Python using the "rpy2" package: rpy2 is a Python package that allows Python programs to call R functions and use R data structures. This can be useful when you want to use an R library that is not available in Python or when you have existing R code that you want to integrate into your Python program.
 
@@ -29,6 +45,7 @@ First, you need to have Python installed on your system. You can download Python
 
 
 ```{r, eval=FALSE}
+# install reticulate package
 install.packages("reticulate")
 ```
 

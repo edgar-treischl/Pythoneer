@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Pythoneer - 4&nbsp; Visualization</title>
+<title>Pythoneer - 3&nbsp; Visualization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function() {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./visualization.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Visualization</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./visualization.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Visualization</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -177,26 +177,20 @@ document.addEventListener("DOMContentLoaded", function() {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./firststeps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">First steps</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">First steps</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./manipulation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data manipulation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data manipulation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./visualization.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Visualization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Visualization</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -215,9 +209,9 @@ document.addEventListener("DOMContentLoaded", function() {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#categorical-data" id="toc-categorical-data" class="nav-link active" data-scroll-target="#categorical-data"><span class="header-section-number">4.1</span> Categorical data</a></li>
-  <li><a href="#relationsships" id="toc-relationsships" class="nav-link" data-scroll-target="#relationsships"><span class="header-section-number">4.2</span> Relationsships</a></li>
-  <li><a href="#fonts" id="toc-fonts" class="nav-link" data-scroll-target="#fonts"><span class="header-section-number">5</span> Fonts</a></li>
+  <li><a href="#categorical-data" id="toc-categorical-data" class="nav-link active" data-scroll-target="#categorical-data"><span class="header-section-number">3.1</span> Categorical data</a></li>
+  <li><a href="#relationsships" id="toc-relationsships" class="nav-link" data-scroll-target="#relationsships"><span class="header-section-number">3.2</span> Relationsships</a></li>
+  <li><a href="#fonts" id="toc-fonts" class="nav-link" data-scroll-target="#fonts"><span class="header-section-number">3.3</span> Fonts</a></li>
   </ul>
 </nav>
     </div>
@@ -226,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Visualization</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Visualization</span></h1>
 </div>
 
 
@@ -254,19 +248,19 @@ document.addEventListener("DOMContentLoaded", function() {
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> penguins.dropna()</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>penguins.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  species     island  bill_length_mm  ...  flipper_length_mm  body_mass_g     sex
-0  Adelie  Torgersen            39.1  ...              181.0       3750.0    Male
-1  Adelie  Torgersen            39.5  ...              186.0       3800.0  Female
-2  Adelie  Torgersen            40.3  ...              195.0       3250.0  Female
-4  Adelie  Torgersen            36.7  ...              193.0       3450.0  Female
-5  Adelie  Torgersen            39.3  ...              190.0       3650.0    Male
-
-[5 rows x 7 columns]</code></pre>
+<pre><code>#&gt;   species     island  bill_length_mm  ...  flipper_length_mm  body_mass_g     sex
+#&gt; 0  Adelie  Torgersen            39.1  ...              181.0       3750.0    Male
+#&gt; 1  Adelie  Torgersen            39.5  ...              186.0       3800.0  Female
+#&gt; 2  Adelie  Torgersen            40.3  ...              195.0       3250.0  Female
+#&gt; 4  Adelie  Torgersen            36.7  ...              193.0       3450.0  Female
+#&gt; 5  Adelie  Torgersen            39.3  ...              190.0       3650.0    Male
+#&gt; 
+#&gt; [5 rows x 7 columns]</code></pre>
 </div>
 </div>
 <p>The latter is a collection of command style functions that make matplotlib work like MATLAB. Each pyplot function makes some change to a figure. For example, a figure can contain multiple plots. The figure is the top-level container for all the plot elements. The axes is the actual plot. The axes contains the x-axis, the y-axis, the title, and the labels. The axes is the container for all the plot elements. The plot elements are the lines, the points, the bars, and the text that make up the plot.</p>
-<section id="categorical-data" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="categorical-data"><span class="header-section-number">4.1</span> Categorical data</h2>
+<section id="categorical-data" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="categorical-data"><span class="header-section-number">3.1</span> Categorical data</h2>
 <p>As outlined, the searborn package is built on top of matplotlib and provides a high-level interface for creating attractive visualizations. The seaborn package provides a number of functions for creating visualizations of categorical data. For example, you can create bar graphs, box plots, and violin plots with the seaborn package. To create a bar graph of the bill length of the penguins grouped by species, append the .barplot() function to the sns object and specify the data, the x variable, and the y variable.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Bar graph</span></span>
@@ -288,8 +282,8 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 <p><img src="lokal_pngs/bees.png" class="img-fluid"></p>
 </section>
-<section id="relationsships" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="relationsships"><span class="header-section-number">4.2</span> Relationsships</h2>
+<section id="relationsships" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="relationsships"><span class="header-section-number">3.2</span> Relationsships</h2>
 <p>Next, we will focus on histograms and scatter plots. These are common visualizations for exploring numerical variables and the relationship between two continuous variables. To create a histogram of the body mass of the penguins, use the hist() function from the matplotlib package. The hist() function takes the data as input and creates a histogram of the data. The number of bins can be specified with the bins parameter.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Hist with matplotlib</span></span>
@@ -342,8 +336,8 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 </div>
 </section>
-<section id="fonts" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Fonts</h1>
+<section id="fonts" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="fonts"><span class="header-section-number">3.3</span> Fonts</h2>
 <p>To use a custom font in a plot, you need to download the font file and specify the path to the font file. You can download a font file from a website like Google Fonts. For example, to download the Roboto font from Google Fonts, use the following code.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> urllib.request</span>
@@ -611,7 +605,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./manipulation.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data manipulation</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data manipulation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

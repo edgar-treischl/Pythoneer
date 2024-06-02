@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Pythoneer - 2&nbsp; First steps</title>
+<title>Pythoneer - 1&nbsp; First steps</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,7 +84,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./manipulation.html" rel="next">
-<link href="./intro.html" rel="prev">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function() {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./firststeps.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">First steps</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./firststeps.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">First steps</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -196,26 +196,20 @@ document.addEventListener("DOMContentLoaded", function() {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./firststeps.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">First steps</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">First steps</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./manipulation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data manipulation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data manipulation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Visualization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Visualization</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -237,7 +231,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">First steps</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">First steps</span></h1>
 </div>
 
 
@@ -253,7 +247,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </header>
 
 <p>Python and R are both popular programming languages used for data analysis and machine learning tasks. While both languages have their own strengths and weaknesses, there are situations where using both languages together can be beneficial.</p>
-<p>using Python and R together can be beneficial when you want to take advantage of the strengths of both languages. Whether you want to use R libraries in Python, Python libraries in R, or combine both languages in a single application, there are many options available for integrating Python and R. Here are some ways in which Python can be used with R:</p>
+<p>Using Python and R together can be beneficial when you want to take advantage of the strengths of both languages. Whether you want to use R libraries in Python, Python libraries in R, or combine both languages in a single application, there are many options available for integrating Python and R. Here are some ways in which Python can be used with R:</p>
 <ul>
 <li><p>R can be called from Python using the “rpy2” package: rpy2 is a Python package that allows Python programs to call R functions and use R data structures. This can be useful when you want to use an R library that is not available in Python or when you have existing R code that you want to integrate into your Python program.</p></li>
 <li><p>Jupyter Notebooks can be used to combine Python and R code: Jupyter Notebooks are interactive documents that allow you to combine code, text, and visualizations in a single document. Jupyter Notebooks support both Python and R, so you can use both languages in the same notebook.</p></li>
@@ -269,7 +263,8 @@ document.addEventListener("DOMContentLoaded", function() {
 </ul>
 <p>First, you need to have Python installed on your system. You can download Python from the official website (https://www.python.org/downloads/) and install it following the instructions provided. Next, install the reticulate package: Open an R session and install the reticulate package by running the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"reticulate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install reticulate package</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"reticulate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Once the package is installed, you need to set the Python path in R. The Python path is the location of the Python executable on your system. You can set the path by running the following command:</p>
 <div class="cell">
@@ -280,14 +275,14 @@ document.addEventListener("DOMContentLoaded", function() {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">py_config</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>python:         /Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate/bin/python
-libpython:      /Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate/lib/libpython3.8.dylib
-pythonhome:     /Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate:/Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate
-version:        3.8.16 | packaged by conda-forge | (default, Feb  1 2023, 16:01:13)  [Clang 14.0.6 ]
-numpy:          /Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate/lib/python3.8/site-packages/numpy
-numpy_version:  1.24.2
-
-NOTE: Python version was forced by use_python() function</code></pre>
+<pre><code>#&gt; python:         /Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate/bin/python
+#&gt; libpython:      /Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate/lib/libpython3.8.dylib
+#&gt; pythonhome:     /Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate:/Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate
+#&gt; version:        3.8.16 | packaged by conda-forge | (default, Feb  1 2023, 16:01:13)  [Clang 14.0.6 ]
+#&gt; numpy:          /Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate/lib/python3.8/site-packages/numpy
+#&gt; numpy_version:  1.24.2
+#&gt; 
+#&gt; NOTE: Python version was forced by use_python() function</code></pre>
 </div>
 </div>
 <p>This command should display information about your Python installation, including the Python version, the location of the Python executable, and the Python library path. Once the reticulate package is installed and configured, you can start using Python functionality in your R code. For example, you can import Python modules, call Python functions, and access Python objects directly from R.</p>
@@ -296,24 +291,24 @@ NOTE: Python version was forced by use_python() function</code></pre>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#List all conda installations</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">conda_list</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>            name
-1           base
-2       EdgarGPT
-3      IliartBot
-4 IliartGPT.venv
-5          flask
-6         fuckit
-7   r-reticulate
-8 streamlit.venv
-                                                                 python
-1                     /Users/edgar/Library/r-miniconda-arm64/bin/python
-2       /Users/edgar/Library/r-miniconda-arm64/envs/EdgarGPT/bin/python
-3      /Users/edgar/Library/r-miniconda-arm64/envs/IliartBot/bin/python
-4 /Users/edgar/Library/r-miniconda-arm64/envs/IliartGPT.venv/bin/python
-5          /Users/edgar/Library/r-miniconda-arm64/envs/flask/bin/python
-6         /Users/edgar/Library/r-miniconda-arm64/envs/fuckit/bin/python
-7   /Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate/bin/python
-8 /Users/edgar/Library/r-miniconda-arm64/envs/streamlit.venv/bin/python</code></pre>
+<pre><code>#&gt;             name
+#&gt; 1           base
+#&gt; 2       EdgarGPT
+#&gt; 3      IliartBot
+#&gt; 4 IliartGPT.venv
+#&gt; 5          flask
+#&gt; 6         fuckit
+#&gt; 7   r-reticulate
+#&gt; 8 streamlit.venv
+#&gt;                                                                  python
+#&gt; 1                     /Users/edgar/Library/r-miniconda-arm64/bin/python
+#&gt; 2       /Users/edgar/Library/r-miniconda-arm64/envs/EdgarGPT/bin/python
+#&gt; 3      /Users/edgar/Library/r-miniconda-arm64/envs/IliartBot/bin/python
+#&gt; 4 /Users/edgar/Library/r-miniconda-arm64/envs/IliartGPT.venv/bin/python
+#&gt; 5          /Users/edgar/Library/r-miniconda-arm64/envs/flask/bin/python
+#&gt; 6         /Users/edgar/Library/r-miniconda-arm64/envs/fuckit/bin/python
+#&gt; 7   /Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate/bin/python
+#&gt; 8 /Users/edgar/Library/r-miniconda-arm64/envs/streamlit.venv/bin/python</code></pre>
 </div>
 </div>
 <p>Virtual environments in Python are a useful tool for managing dependencies and ensuring that your project runs smoothly on different systems. Here are several reasons why it is wise to use virtual environments in Python:</p>
@@ -374,47 +369,45 @@ NOTE: Python version was forced by use_python() function</code></pre>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#print(cars)</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>cars.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    mpg  cylinders  displacement  ...  model_year  origin                       name
-0  18.0          8         307.0  ...          70     usa  chevrolet chevelle malibu
-1  15.0          8         350.0  ...          70     usa          buick skylark 320
-2  18.0          8         318.0  ...          70     usa         plymouth satellite
-3  16.0          8         304.0  ...          70     usa              amc rebel sst
-4  17.0          8         302.0  ...          70     usa                ford torino
-
-[5 rows x 9 columns]</code></pre>
+<pre><code>#&gt;     mpg  cylinders  displacement  ...  model_year  origin                       name
+#&gt; 0  18.0          8         307.0  ...          70     usa  chevrolet chevelle malibu
+#&gt; 1  15.0          8         350.0  ...          70     usa          buick skylark 320
+#&gt; 2  18.0          8         318.0  ...          70     usa         plymouth satellite
+#&gt; 3  16.0          8         304.0  ...          70     usa              amc rebel sst
+#&gt; 4  17.0          8         302.0  ...          70     usa                ford torino
+#&gt; 
+#&gt; [5 rows x 9 columns]</code></pre>
 </div>
 </div>
 <p>The Pandas library is a popular data analysis toolkit for Python. It provides a wide range of functions and tools for working with structured data. For example, the describe() function is used to generate descriptive statistics of a Pandas DataFrame or Series. When called on a DataFrame or Series, the describe() function provides summary statistics such as count, mean, standard deviation, minimum, maximum, and quartiles. The next console shows how to generate descriptive statistics for the “mpg” dataset using the describe() function, you can use the following Python code:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>cars.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>              mpg   cylinders  ...  acceleration  model_year
-count  398.000000  398.000000  ...    398.000000  398.000000
-mean    23.514573    5.454774  ...     15.568090   76.010050
-std      7.815984    1.701004  ...      2.757689    3.697627
-min      9.000000    3.000000  ...      8.000000   70.000000
-25%     17.500000    4.000000  ...     13.825000   73.000000
-50%     23.000000    4.000000  ...     15.500000   76.000000
-75%     29.000000    8.000000  ...     17.175000   79.000000
-max     46.600000    8.000000  ...     24.800000   82.000000
-
-[8 rows x 7 columns]</code></pre>
+<pre><code>#&gt;               mpg   cylinders  ...  acceleration  model_year
+#&gt; count  398.000000  398.000000  ...    398.000000  398.000000
+#&gt; mean    23.514573    5.454774  ...     15.568090   76.010050
+#&gt; std      7.815984    1.701004  ...      2.757689    3.697627
+#&gt; min      9.000000    3.000000  ...      8.000000   70.000000
+#&gt; 25%     17.500000    4.000000  ...     13.825000   73.000000
+#&gt; 50%     23.000000    4.000000  ...     15.500000   76.000000
+#&gt; 75%     29.000000    8.000000  ...     17.175000   79.000000
+#&gt; max     46.600000    8.000000  ...     24.800000   82.000000
+#&gt; 
+#&gt; [8 rows x 7 columns]</code></pre>
 </div>
 </div>
 <p>Or consider the mean() function which is used to calculate the arithmetic mean of a Pandas DataFrame or Series. When called on a DataFrame or Series, the mean() function calculates the average value of all the elements in the DataFrame or Series.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>cars.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>mpg               23.514573
-cylinders          5.454774
-displacement     193.425879
-horsepower       104.469388
-weight          2970.424623
-acceleration      15.568090
-model_year        76.010050
-dtype: float64
-
-&lt;string&gt;:1: FutureWarning: The default value of numeric_only in DataFrame.mean is deprecated. In a future version, it will default to False. In addition, specifying 'numeric_only=None' is deprecated. Select only valid columns or specify the value of numeric_only to silence this warning.</code></pre>
+<pre><code>#&gt; mpg               23.514573
+#&gt; cylinders          5.454774
+#&gt; displacement     193.425879
+#&gt; horsepower       104.469388
+#&gt; weight          2970.424623
+#&gt; acceleration      15.568090
+#&gt; model_year        76.010050
+#&gt; dtype: float64</code></pre>
 </div>
 </div>
 <p>Scipy is a popular library for scientific computing in Python, and it provides functions for calculating statistical values, such as the correlation coefficient. Start by importing the necessary packages. You’ll need the scipy.stats module to calculate the correlation coefficient, and you may also need numpy to work with arrays or matrices of data.</p>
@@ -430,7 +423,7 @@ dtype: float64
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>scipy.stats.pearsonr(mpg, horsepower)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>array must not contain infs or NaNs</code></pre>
+<pre><code>#&gt; array must not contain infs or NaNs</code></pre>
 </div>
 </div>
 <p>Unfortuntely, there is a missing values problem that we need to fix first. In Python, missing values are typically represented by the special value NaN (Not a Number), which is part of the numpy library. There are different ways to drop missing values from a dataset, depending on the context and the desired outcome.</p>
@@ -443,62 +436,59 @@ dtype: float64
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>scipy.stats.pearsonr(mpg, horsepower)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>PearsonRResult(statistic=-0.7784267838977761, pvalue=7.031989029403436e-81)</code></pre>
+<pre><code>#&gt; PearsonRResult(statistic=-0.7784267838977761, pvalue=7.031989029403436e-81)</code></pre>
 </div>
 </div>
 <p>Alternatively, if you have a pandas DataFrame, you can use the pandas.DataFrame.corr() method to calculate the correlation coefficient for all pairs of columns.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>corr_matrix <span class="op">=</span> cars.corr(method<span class="op">=</span><span class="st">'pearson'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>corr_matrix <span class="op">=</span> cars.corr(method<span class="op">=</span><span class="st">'pearson'</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(corr_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;string&gt;:1: FutureWarning: The default value of numeric_only in DataFrame.corr is deprecated. In a future version, it will default to False. Select only valid columns or specify the value of numeric_only to silence this warning.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(corr_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                   mpg  cylinders  ...  acceleration  model_year
-mpg           1.000000  -0.777618  ...      0.423329    0.580541
-cylinders    -0.777618   1.000000  ...     -0.504683   -0.345647
-displacement -0.805127   0.950823  ...     -0.543800   -0.369855
-horsepower   -0.778427   0.842983  ...     -0.689196   -0.416361
-weight       -0.832244   0.897527  ...     -0.416839   -0.309120
-acceleration  0.423329  -0.504683  ...      1.000000    0.290316
-model_year    0.580541  -0.345647  ...      0.290316    1.000000
-
-[7 rows x 7 columns]</code></pre>
+<pre><code>#&gt;                    mpg  cylinders  ...  acceleration  model_year
+#&gt; mpg           1.000000  -0.777618  ...      0.423329    0.580541
+#&gt; cylinders    -0.777618   1.000000  ...     -0.504683   -0.345647
+#&gt; displacement -0.805127   0.950823  ...     -0.543800   -0.369855
+#&gt; horsepower   -0.778427   0.842983  ...     -0.689196   -0.416361
+#&gt; weight       -0.832244   0.897527  ...     -0.416839   -0.309120
+#&gt; acceleration  0.423329  -0.504683  ...      1.000000    0.290316
+#&gt; model_year    0.580541  -0.345647  ...      0.290316    1.000000
+#&gt; 
+#&gt; [7 rows x 7 columns]</code></pre>
 </div>
 </div>
 <p>In the next two chapter we learn more about data preparation, analysis, and visualization with Python. For example, the statsmodels.formula.api module is used to create and fit a linear regression model. The formula for the regression model is defined using a string that specifies the dependent variable and the independent variables, separated by ~ operator which is very similar compared to R. The ols() method is used to create the model, passing in the formula and the dataset. Finally, the fit() method is used to fit the model to the data, and the summary() method is used to print a summary of the model results.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> smf.ols(<span class="st">'mpg ~ horsepower'</span>, data<span class="op">=</span>cars).fit()</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> smf.ols(<span class="st">'mpg ~ horsepower'</span>, data<span class="op">=</span>cars).fit()</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                            OLS Regression Results                            
-==============================================================================
-Dep. Variable:                    mpg   R-squared:                       0.606
-Model:                            OLS   Adj. R-squared:                  0.605
-Method:                 Least Squares   F-statistic:                     599.7
-Date:                Sun, 02 Jun 2024   Prob (F-statistic):           7.03e-81
-Time:                        09:28:05   Log-Likelihood:                -1178.7
-No. Observations:                 392   AIC:                             2361.
-Df Residuals:                     390   BIC:                             2369.
-Df Model:                           1                                         
-Covariance Type:            nonrobust                                         
-==============================================================================
-                 coef    std err          t      P&gt;|t|      [0.025      0.975]
-------------------------------------------------------------------------------
-Intercept     39.9359      0.717     55.660      0.000      38.525      41.347
-horsepower    -0.1578      0.006    -24.489      0.000      -0.171      -0.145
-==============================================================================
-Omnibus:                       16.432   Durbin-Watson:                   0.920
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):               17.305
-Skew:                           0.492   Prob(JB):                     0.000175
-Kurtosis:                       3.299   Cond. No.                         322.
-==============================================================================
-
-Notes:
-[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</code></pre>
+<pre><code>#&gt;                             OLS Regression Results                            
+#&gt; ==============================================================================
+#&gt; Dep. Variable:                    mpg   R-squared:                       0.606
+#&gt; Model:                            OLS   Adj. R-squared:                  0.605
+#&gt; Method:                 Least Squares   F-statistic:                     599.7
+#&gt; Date:                Sun, 02 Jun 2024   Prob (F-statistic):           7.03e-81
+#&gt; Time:                        09:48:23   Log-Likelihood:                -1178.7
+#&gt; No. Observations:                 392   AIC:                             2361.
+#&gt; Df Residuals:                     390   BIC:                             2369.
+#&gt; Df Model:                           1                                         
+#&gt; Covariance Type:            nonrobust                                         
+#&gt; ==============================================================================
+#&gt;                  coef    std err          t      P&gt;|t|      [0.025      0.975]
+#&gt; ------------------------------------------------------------------------------
+#&gt; Intercept     39.9359      0.717     55.660      0.000      38.525      41.347
+#&gt; horsepower    -0.1578      0.006    -24.489      0.000      -0.171      -0.145
+#&gt; ==============================================================================
+#&gt; Omnibus:                       16.432   Durbin-Watson:                   0.920
+#&gt; Prob(Omnibus):                  0.000   Jarque-Bera (JB):               17.305
+#&gt; Skew:                           0.492   Prob(JB):                     0.000175
+#&gt; Kurtosis:                       3.299   Cond. No.                         322.
+#&gt; ==============================================================================
+#&gt; 
+#&gt; Notes:
+#&gt; [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</code></pre>
 </div>
 </div>
 
@@ -748,13 +738,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./intro.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./manipulation.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data manipulation</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data manipulation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -145,7 +145,7 @@ plt.scatter(cars.mpg, cars.horsepower)
 
 
 
-## Summary
+### Summary{-}
 
 This chapter provided you with a brief overview of the book. We discussed the motivation behind this book, the target audience, and the structure of the book. We also outlined how you can transfer your R knowledge to Python. In the next chapter, we will discuss how to install Python, manage virtual environments, and install packages. 
 

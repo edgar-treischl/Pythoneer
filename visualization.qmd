@@ -5,6 +5,17 @@ title: "Visualization"
 ```{r setup, include=FALSE}
 reticulate::use_python("/Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate/bin/python")
 
+knitr::opts_chunk$set(
+  #fig.width = 6,
+  #fig.height = 4,
+  #fig.path = "images/",
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  eval = TRUE,
+  comment = "#>"
+)
+
 ```
 
 When it comes to visualizations, R user know base R plots and very like the ggplot2 package. This chapter shows how to create visualizations with Python packages like plotnine that mimic the logic of the ggplot2 package. The latter implements the grammar of graphics, which is a powerful way to create visualizations. The grammar of graphics is a way to describe the components of a plot, such as the data, the aesthetics, and the geometries, in a structured way. This makes it possible to create complex visualizations by combining components.
@@ -102,7 +113,7 @@ p = ggplot(penguins) + geom_boxplot(aes(x='factor(species)', y='body_mass_g')) +
 print(p)
 ```
 
-# Fonts
+## Fonts
 
 To use a custom font in a plot, you need to download the font file and specify the path to the font file. You can download a font file from a website like Google Fonts. For example, to download the Roboto font from Google Fonts, use the following code.
 

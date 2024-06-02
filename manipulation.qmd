@@ -8,6 +8,17 @@ editor_options:
 ```{r setup, include=FALSE}
 reticulate::use_python("/Users/edgar/Library/r-miniconda-arm64/envs/r-reticulate/bin/python")
 
+knitr::opts_chunk$set(
+  #fig.width = 6,
+  #fig.height = 4,
+  #fig.path = "images/",
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  eval = TRUE,
+  comment = "#>"
+)
+
 ```
 
 What is dplyr? The dplyr package is designed for data manipulation, written and maintained by Hadley Wickham. It is part of the tidyverse, an ecosystem of packages designed with common APIs and a shared philosophy. Dplyr is designed to abstract common data manipulation tasks into a consistent API. However, the pandas library provides similar functions. The pandas package is a powerful data manipulation library in Python. It provides data structures and functions to manipulate data and in this chapter we will see how to use dplyr functions work in Python. 
