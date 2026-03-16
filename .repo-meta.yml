@@ -1,0 +1,20 @@
+name: Pythoneer
+description: Python Test book
+dev_path: books
+role: book
+tags:
+  - python
+language: python
+setup:
+  - pip install -e .
+  - pre-commit install
+env:
+  - .env.example
+services:
+  - postgres
+  - redis
+depends_on:
+  - my-core-lib
+workspace: []
+update_strategy: []
+priority: []
